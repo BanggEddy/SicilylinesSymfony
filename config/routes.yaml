@@ -1,3 +1,27 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+acceuil:
+    path: /acceuil
+    controller: App\Controller\Acceuil\AcceuilController::index
+client:
+    path: /client
+    controller: App\Controller\Client\ClientController::index
+contact:
+    path: /contact
+    controller: App\Controller\Contact\ContactController::index
+client_new:
+    path: /client/new
+    controller: App\Controller\ClientController::new
+    methods: [GET, POST]
+connection:
+    path: /connection
+    controller: App\Controller\Connection\ConnectionController::index
+reservation:
+    path: /reservation
+    controller: App\Controller\Reservation\ReservationController::index
+reservation_new:
+    path: /reservation/new
+    controller: App\Controller\ReservationController::new
+    methods: [GET, POST]
+confirmation:
+    path: /confirmation
+    controller: App\Controller\Confirmation\ConfirmationController::index
+    
