@@ -15,12 +15,12 @@ class ConnectionController extends AbstractController
     public function index(Request $request): Response
     {
         if ($request->isMethod('POST')) {
-            $nom = $request->request->get('_nom');
-            $adresse = $request->request->get('_adresse');
+            $email = $request->request->get('_email');
+            $mdp = $request->request->get('_mdp');
 
             $client = $this->getDoctrine()
                 ->getRepository(Client::class)
-                ->findOneBy(['nom' => $nom, 'adresse' => $adresse]);
+                ->findOneBy(['email' => $email, 'mdp' => $mdp]);
 
             if ($client) {
                 return $this->redirectToRoute('app_reservation_new', ['id' => $client->getId()]);

@@ -30,6 +30,24 @@ class Client
     #[ORM\OneToMany(mappedBy: 'client', targetEntity: Reservation::class)]
     private Collection $reservations;
 
+    #[ORM\Column(length: 255)]
+    private ?string $pays = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $prenom = null;
+
+    #[ORM\Column]
+    private ?int $telephone = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $civilite = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $email = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $mdp = null;
+
 
     public function __construct()
     {
@@ -115,6 +133,78 @@ class Client
                 $reservation->setClient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPays(): ?string
+    {
+        return $this->pays;
+    }
+
+    public function setPays(string $pays): self
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?int
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(int $telephone): self
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getCivilite(): ?string
+    {
+        return $this->civilite;
+    }
+
+    public function setCivilite(string $civilite): self
+    {
+        $this->civilite = $civilite;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getMdp(): ?string
+    {
+        return $this->mdp;
+    }
+
+    public function setMdp(string $mdp): self
+    {
+        $this->mdp = $mdp;
 
         return $this;
     }

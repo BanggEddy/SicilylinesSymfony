@@ -3,9 +3,18 @@
 {% block title %}New Client{% endblock %}
 
 {% block body %}
-    <h1>Create new Client</h1>
+       <section id="hautcontact">
+<div class="saut"></div>
+<div class="precontact">
+<p style="    font-size: 100px;"> Inscription </p>
+</div>
+</section>
 
+<div class="container">
+<br>
+<p style="font-size: 130%;">N'attendez plus, inscrivez-vous dès maintenant pour accéder à notre plateforme de réservation en ligne et réserver votre traversée avec SicilyLines en toute simplicité !</p>
     {{ include('client/_form.html.twig') }}
 
     <a href="{{ path('app_client_index') }}">back to list</a>
+    </div>
 {% endblock %}

@@ -3,7 +3,12 @@
 {% block title %}Client index{% endblock %}
 
 {% block body %}
-    <h1>Client index</h1>
+          <section id="hautcontact">
+<div class="saut"></div>
+<div class="precontact">
+<p style="    font-size: 100px;"> Liste des clients </p>
+</div>
+</section>
 
     <table class="table">
         <thead>
@@ -13,6 +18,12 @@
                 <th>Adresse</th>
                 <th>Cp</th>
                 <th>Ville</th>
+                <th>Pays</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th>Civilite</th>
+                <th>Email</th>
+                <th>Mdp</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -24,6 +35,12 @@
                 <td>{{ client.adresse }}</td>
                 <td>{{ client.cp }}</td>
                 <td>{{ client.ville }}</td>
+                <td>{{ client.pays }}</td>
+                <td>{{ client.prenom }}</td>
+                <td>{{ client.telephone }}</td>
+                <td>{{ client.civilite }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.mdp }}</td>
                 <td>
                     <a href="{{ path('app_client_show', {'id': client.id}) }}">show</a>
                     <a href="{{ path('app_client_edit', {'id': client.id}) }}">edit</a>
@@ -31,7 +48,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="12">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

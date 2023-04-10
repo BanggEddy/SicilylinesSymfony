@@ -3,7 +3,12 @@
 {% block title %}Edit Client{% endblock %}
 
 {% block body %}
-    <h1>Edit Client</h1>
+           <section id="hautcontact">
+<div class="saut"></div>
+<div class="precontact">
+<p style="    font-size: 100px;"> Edit Client id: {{ client.id }} </p>
+</div>
+</section>
 
     {{ include('client/_form.html.twig', {'button_label': 'Update'}) }}
 
