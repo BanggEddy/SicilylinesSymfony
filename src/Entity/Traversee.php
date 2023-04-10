@@ -32,8 +32,9 @@ class Traversee
     #[ORM\OneToMany(mappedBy: 'traversee', targetEntity: Reservation::class)]
     private Collection $reservations;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE)]
-    private ?\DateTimeInterface $heure = null;
+    #[ORM\Column(length: 255)]
+    private ?string $heuree = null;
+
 
     public function __construct()
     {
@@ -57,17 +58,7 @@ class Traversee
         return $this;
     }
 
-    public function getHeure(): ?string
-    {
-        return $this->heure;
-    }
 
-    public function setHeure(string $heure): self
-    {
-        $this->heure = $heure;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Reservation>
@@ -116,6 +107,18 @@ class Traversee
     public function setBateau(?Bateau $bateau): self
     {
         $this->bateau = $bateau;
+
+        return $this;
+    }
+
+    public function getHeuree(): ?string
+    {
+        return $this->heuree;
+    }
+
+    public function setHeuree(string $heuree): self
+    {
+        $this->heuree = $heuree;
 
         return $this;
     }

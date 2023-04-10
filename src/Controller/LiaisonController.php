@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Liaison;
-use App\Form\LiaisonType;
+use App\Form\Liaison1Type;
 use App\Repository\LiaisonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +25,7 @@ class LiaisonController extends AbstractController
     public function new(Request $request, LiaisonRepository $liaisonRepository): Response
     {
         $liaison = new Liaison();
-        $form = $this->createForm(LiaisonType::class, $liaison);
+        $form = $this->createForm(Liaison1Type::class, $liaison);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class LiaisonController extends AbstractController
     #[Route('/{id}/edit', name: 'app_liaison_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Liaison $liaison, LiaisonRepository $liaisonRepository): Response
     {
-        $form = $this->createForm(LiaisonType::class, $liaison);
+        $form = $this->createForm(Liaison1Type::class, $liaison);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

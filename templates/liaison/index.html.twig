@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Duree</th>
+                <th>Dure</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -17,7 +17,7 @@
         {% for liaison in liaisons %}
             <tr>
                 <td>{{ liaison.id }}</td>
-                <td>{{ liaison.duree ? liaison.duree|date('H:i:s') : '' }}</td>
+                <td>{{ liaison.dure }}</td>
                 <td>
                     <a href="{{ path('app_liaison_show', {'id': liaison.id}) }}">show</a>
                     <a href="{{ path('app_liaison_edit', {'id': liaison.id}) }}">edit</a>

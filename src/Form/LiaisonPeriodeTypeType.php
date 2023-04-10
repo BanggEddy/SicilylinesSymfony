@@ -19,15 +19,15 @@ class LiaisonPeriodeTypeType extends AbstractType
             ->add('tarif')
             ->add('type', EntityType::class, [
                 'class'=> Type::class,
-                'choice_label' => 'nom',
+                'choice_label' => 'libelle',
             ])
             ->add('periode', EntityType::class, [
                 'class'=> Periode::class,
-                'choice_label' => 'nom',
+                'choice_label' => 'id',
             ])
             ->add('liaison', EntityType::class, [
                 'class'=> Liaison::class,
-                'choice_label' => 'nom',
+                'choice_label' => 'id',
             ])
         ;
     }

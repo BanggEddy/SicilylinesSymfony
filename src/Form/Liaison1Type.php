@@ -10,12 +10,12 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Secteur;
 use App\Entity\Port;
 
-class LiaisonType extends AbstractType
+class Liaison1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('duree')
+            ->add('dure')
             ->add('secteur', EntityType::class, [
                 'class'=> Secteur::class,
                 'choice_label' => 'libelle',

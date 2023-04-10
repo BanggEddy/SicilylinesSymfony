@@ -32,14 +32,12 @@ class Liaison
     #[ORM\OneToMany(mappedBy: 'liaison', targetEntity: LiaisonPeriodeType::class)]
     private Collection $liaisonPeriodeTypes;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE)]
-    private ?\DateTimeInterface $duree = null;
+
 
  
 
     public function __construct()
     {
-        $this->tarifers = new ArrayCollection();
         $this->traversees = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->liaisonPeriodeTypes = new ArrayCollection();
@@ -50,47 +48,6 @@ class Liaison
         return $this->id;
     }
 
-    public function getDuree(): ?string
-    {
-        return $this->duree;
-    }
-
-    public function setDuree(string $duree): self
-    {
-        $this->duree = $duree;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Tarifer>
-     */
-    public function getTarifers(): Collection
-    {
-        return $this->tarifers;
-    }
-
-    public function addTarifer(Tarifer $tarifer): self
-    {
-        if (!$this->tarifers->contains($tarifer)) {
-            $this->tarifers->add($tarifer);
-            $tarifer->setLiaison($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTarifer(Tarifer $tarifer): self
-    {
-        if ($this->tarifers->removeElement($tarifer)) {
-            // set the owning side to null (unless already changed)
-            if ($tarifer->getLiaison() === $this) {
-                $tarifer->setLiaison(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getPort(): ?Port
     {

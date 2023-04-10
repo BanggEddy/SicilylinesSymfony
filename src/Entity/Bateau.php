@@ -43,7 +43,6 @@ class Bateau
     public function __construct()
     {
         $this->traversees = new ArrayCollection();
-        $this->contenir = new ArrayCollection();
         $this->proposer = new ArrayCollection();
         $this->bateauEquipements = new ArrayCollection();
         $this->bateauCategories = new ArrayCollection();
@@ -128,54 +127,6 @@ class Bateau
                 $traversee->setBateau(null);
             }
         }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Contenir>
-     */
-    public function getContenir(): Collection
-    {
-        return $this->contenir;
-    }
-
-    public function addContenir(Contenir $contenir): self
-    {
-        if (!$this->contenir->contains($contenir)) {
-            $this->contenir->add($contenir);
-        }
-
-        return $this;
-    }
-
-    public function removeContenir(Contenir $contenir): self
-    {
-        $this->contenir->removeElement($contenir);
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Proposer>
-     */
-    public function getProposer(): Collection
-    {
-        return $this->proposer;
-    }
-
-    public function addProposer(Proposer $proposer): self
-    {
-        if (!$this->proposer->contains($proposer)) {
-            $this->proposer->add($proposer);
-        }
-
-        return $this;
-    }
-
-    public function removeProposer(Proposer $proposer): self
-    {
-        $this->proposer->removeElement($proposer);
 
         return $this;
     }

@@ -3,13 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Traversee;
-use App\Form\TraverseeType;
+use App\Form\Traversee2Type;
 use App\Repository\TraverseeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 
 #[Route('/traversee')]
 class TraverseeController extends AbstractController
@@ -26,7 +25,7 @@ class TraverseeController extends AbstractController
     public function new(Request $request, TraverseeRepository $traverseeRepository): Response
     {
         $traversee = new Traversee();
-        $form = $this->createForm(TraverseeType::class, $traversee);
+        $form = $this->createForm(Traversee2Type::class, $traversee);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -52,7 +51,7 @@ class TraverseeController extends AbstractController
     #[Route('/{id}/edit', name: 'app_traversee_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Traversee $traversee, TraverseeRepository $traverseeRepository): Response
     {
-        $form = $this->createForm(TraverseeType::class, $traversee);
+        $form = $this->createForm(Traversee2Type::class, $traversee);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

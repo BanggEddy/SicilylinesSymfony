@@ -9,14 +9,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Bateau;
 use App\Entity\Liaison;
-
-class TraverseeType extends AbstractType
+class Traversee1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('date')
-            ->add('heure')
+            ->add('heuree')
             ->add('liaison', EntityType::class, [
                 'class'=> Liaison::class,
                 'choice_label' => 'id',
@@ -26,13 +25,12 @@ class TraverseeType extends AbstractType
                 'choice_label' => 'nom',
             ])
         ;
-    
     }
+
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Traversee::class,
         ]);
     }
-    
 }
