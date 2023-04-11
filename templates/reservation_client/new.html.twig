@@ -1,0 +1,16 @@
+{% extends 'client.html.twig' %}
+
+{% block title %}New Reservation{% endblock %}
+
+{% block body %}
+    <section id="hautcontact">
+<div class="saut"></div>
+<div class="precontact">
+<p style="    font-size: 100px;"> Reservation </p>
+</div>
+</section>
+
+    {{ include('reservation_client/_form.html.twig') }}
+
+    <a href="{{ path('app_reservation_client_index') }}">back to list</a>
+{% endblock %}

@@ -24,4 +24,14 @@ reservation_new:
 confirmation:
     path: /confirmation
     controller: App\Controller\Confirmation\ConfirmationController::index
-    
+reservation_client_new:
+    path: /reservation/client/new
+    controller: App\Controller\ReservationClientController::new
+    methods: [GET, POST]
+acceuilclient:
+    path: /acceuilclient
+    controller: App\Controller\AcceuilClient\AcceuilClientController::index
+recherche:
+    path: /recherche
+    controller: App\Controller\Recherche\RechercheController::index
+

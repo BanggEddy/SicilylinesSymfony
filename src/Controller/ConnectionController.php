@@ -23,7 +23,7 @@ class ConnectionController extends AbstractController
                 ->findOneBy(['email' => $email, 'mdp' => $mdp]);
 
             if ($client) {
-                return $this->redirectToRoute('app_reservation_new', ['id' => $client->getId()]);
+                return $this->redirectToRoute('acceuilclient', ['id' => $client->getId()]);
             } else {
                 $this->addFlash('error', 'Les informations de connexion sont incorrectes.');
             }
