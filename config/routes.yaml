@@ -34,4 +34,17 @@ acceuilclient:
 recherche:
     path: /recherche
     controller: App\Controller\Recherche\RechercheController::index
-
+admin:
+    path: /admin
+    controller: App\Controller\Admin\AdminController::index
+acceuiladmin:
+    path: /acceuiladmin
+    controller: App\Controller\AcceuilAdmin\AcceuilAdminController::index
+    methods: [GET, POST]
+resultrecherche:
+  path: /resultrecherche
+  controller: App\Controller\ResultRechercheController::index
+  methods: ['GET']
+recherchetraversee:
+  path: /recherchetraversee
+  controller: App\Controller\RechercheTraversee\RechercheTraverseeController::index
