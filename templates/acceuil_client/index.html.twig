@@ -14,7 +14,12 @@ SicilyLines
 <section id="haut">
 <div class="saut"></div>
 <div class="pre2">
-
+<center>
+                    <form class="d-flex" action="{{ path('resultrechercheclient') }}" method="GET" style="width:40%;height:20%; padding:0px; flex-direction: inherit; background-color:initial;">
+  <input class="form-control me-2" type="search" placeholder="Rechercher une traversée par son ID" name="search" aria-label="Search">
+  <button class="btn btn-info" style="width: 50%, 20% !important;transition:1s" type="submit">Rechercher</button>
+</form>
+</center>
 </div>
 </section>
 

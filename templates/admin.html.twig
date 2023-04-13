@@ -30,12 +30,23 @@ SicilyLines</a>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-          <form class="d-flex" action="{{ path('app_result_recherche') }}" method="GET" style="width:50%;height:50%; padding:0px; flex-direction: inherit;">
-  <input class="form-control me-2" type="search" placeholder="Rechercher une traversée" name="search" aria-label="Search">
-  <button class="btn btn-outline-info" style="width: 50%, 20% !important;transition:1s" type="submit">Rechercher</button>
-</form>
+                          <li class="nav-item">
+          <a class="nav-link" href="{{ path('port') }}"> <button type="button" class="btn btn-danger" style="width: 100% !important;transition:1s"> Port </button> </a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="{{ path('liaison') }}"> <button type="button" class="btn btn-danger" style="width: 100% !important;transition:1s"> Liaison </button> </a>
+        </li>
+                  <li class="nav-item">
+          <a class="nav-link" href="{{ path('equipement') }}"> <button type="button" class="btn btn-danger" style="width: 100% !important;transition:1s"> Equipement </button> </a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="{{ path('bateau') }}"> <button type="button" class="btn btn-danger" style="width: 100% !important;transition:1s"> Bateau </button> </a>
+        </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('reservation_client_new') }}"> <button type="button" class="btn btn-success" style="width: 100px !important;transition:1s"> Reserver </button> </a>
+          <a class="nav-link" href="{{ path('traversee') }}"> <button type="button" class="btn btn-danger" style="width: 100% !important;transition:1s"> Traversee </button> </a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="{{ path('reservation') }}"> <button type="button" class="btn btn-danger" style="width: 100% !important;transition:1s"> Rservation </button> </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ path('acceuil') }}"> <button type="button" class="btn btn-danger" style="width: 100% !important;transition:1s"> Deconnection </button> </a>

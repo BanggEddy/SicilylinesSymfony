@@ -19,9 +19,9 @@ class AdminController extends AbstractController
 
             $admin = $this->getDoctrine()
                 ->getRepository(Admin::class)
-                ->findOneBy(['email' => $email]);
+                ->findOneBy(['email' => $email, 'mdp' => $mdp]);
 
-            if ($admin && password_verify($mdp, $admin->getMdp())) {
+            if ($admin) {
                 return $this->redirectToRoute('acceuiladmin', ['id' => $admin->getId()]);
             } else {
                 $this->addFlash('error', 'Les informations de connexion sont incorrectes.');

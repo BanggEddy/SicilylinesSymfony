@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'client.html.twig' %}
 
-{% block title %}Hello RechercheTraverseeController!{% endblock %}
+{% block title %}ResultRechercheController{% endblock %}
 
 {% block body %}
-
 <section id="hautcontact">
 <div class="saut"></div>
 <div class="precontact">
-<p style="    font-size: 100px;"> Résultat de votre recherche: </p>
+<p style="    font-size: 100px;"> Résultats Recherche  </p>
 </div>
 </section>
 
@@ -28,7 +27,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">L'ID saisie ne trouve pas de traversée</td>
             </tr>
         {% endfor %}
         </tbody>

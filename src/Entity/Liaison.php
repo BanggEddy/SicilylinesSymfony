@@ -32,6 +32,9 @@ class Liaison
     #[ORM\OneToMany(mappedBy: 'liaison', targetEntity: LiaisonPeriodeType::class)]
     private Collection $liaisonPeriodeTypes;
 
+    #[ORM\Column(length: 255)]
+    private ?string $dure = null;
+
 
 
  
@@ -180,6 +183,18 @@ class Liaison
                 $liaisonPeriodeType->setLiaison(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDure(): ?string
+    {
+        return $this->dure;
+    }
+
+    public function setDure(string $dure): self
+    {
+        $this->dure = $dure;
 
         return $this;
     }

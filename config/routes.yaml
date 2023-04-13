@@ -7,6 +7,9 @@ client:
 contact:
     path: /contact
     controller: App\Controller\Contact\ContactController::index
+contactclient:
+    path: /contactclient
+    controller: App\Controller\ContactClient\ContactClientController::index
 client_new:
     path: /client/new
     controller: App\Controller\ClientController::new
@@ -40,11 +43,32 @@ admin:
 acceuiladmin:
     path: /acceuiladmin
     controller: App\Controller\AcceuilAdmin\AcceuilAdminController::index
-    methods: [GET, POST]
 resultrecherche:
   path: /resultrecherche
   controller: App\Controller\ResultRechercheController::index
   methods: ['GET']
+resultrechercheclient:
+  path: /resultrechercheclient
+  controller: App\Controller\ResultRechercheClientController::index
+  methods: ['GET']
 recherchetraversee:
   path: /recherchetraversee
   controller: App\Controller\RechercheTraversee\RechercheTraverseeController::index
+recherchetraverseeclient:
+  path: /recherchetraverseeclient
+  controller: App\Controller\RechercheTraverseeClient\RechercheTraverseeClientController::index
+traversee:
+    path: /traversee
+    controller: App\Controller\Traversee\TraverseeController::index
+bateau:
+    path: /bateau
+    controller: App\Controller\Bateau\BateauController::index
+equipement:
+    path: /equipement
+    controller: App\Controller\Equipement\EquipementController::index
+port:
+    path: /port
+    controller: App\Controller\Port\PortController::index
+liaison:
+    path: /liaison
+    controller: App\Controller\Liaison\LiaisonController::index
