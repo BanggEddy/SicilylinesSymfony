@@ -1,22 +1,53 @@
+#ACCUEILCONTROLLER
 acceuil:
     path: /acceuil
-    controller: App\Controller\Acceuil\AcceuilController::index
+    controller: 'App\Controller\Acceuil\AcceuilController::index'
+homepage:
+    path: /
+    controller: 'App\Controller\Acceuil\AcceuilController::acceuil'
+acceuilclient:
+    path: /acceuilclient
+    controller: 'App\Controller\Acceuil\AcceuilController::acceuilclient'
+acceuiladmin:
+    path: /acceuiladmin
+    controller: 'App\Controller\Acceuil\AcceuilController::acceuiladmin'
+#Client
 client:
     path: /client
     controller: App\Controller\Client\ClientController::index
-contact:
-    path: /contact
-    controller: App\Controller\Contact\ContactController::index
-contactclient:
-    path: /contactclient
-    controller: App\Controller\ContactClient\ContactClientController::index
 client_new:
     path: /client/new
     controller: App\Controller\ClientController::new
     methods: [GET, POST]
+#ContactController
+contact:
+    path: /contact
+    controller: 'App\Controller\Contact\ContactController::index'
+
+contactclient:
+    path: /contactclient
+    controller: 'App\Controller\Contact\ContactController::contact/client'
+#RechercheTraverséeController
+recherchetraverseeclient:
+    path: /recherchetraverseeclient
+    controller: App\Controller\RechercheTraversee\RechercheTraverseeController::recherchetraverseeclient
+recherchetraversee:
+    path: /recherchetraversee
+    controller: App\Controller\RechercheTraversee\RechercheTraverseeController::index
+#ResultRechercheController
+resultrecherche:
+    path: /resultrecherche
+    controller: App\Controller\ResultRechercheController::index
+    methods: ['GET']
+resultrechercheclient:
+    path: /resultrechercheclient
+    controller: App\Controller\ResultRechercheController::resultrechercheclient
+    methods: ['GET']
+#Connection
 connection:
     path: /connection
     controller: App\Controller\Connection\ConnectionController::index
+#Réservation
 reservation:
     path: /reservation
     controller: App\Controller\Reservation\ReservationController::index
@@ -24,39 +55,16 @@ reservation_new:
     path: /reservation/new
     controller: App\Controller\ReservationController::new
     methods: [GET, POST]
-confirmation:
-    path: /confirmation
-    controller: App\Controller\Confirmation\ConfirmationController::index
 reservation_client_new:
     path: /reservation/client/new
     controller: App\Controller\ReservationClientController::new
     methods: [GET, POST]
-acceuilclient:
-    path: /acceuilclient
-    controller: App\Controller\AcceuilClient\AcceuilClientController::index
-recherche:
-    path: /recherche
-    controller: App\Controller\Recherche\RechercheController::index
+confirmation:
+    path: /confirmation
+    controller: App\Controller\Confirmation\ConfirmationController::index
 admin:
     path: /admin
     controller: App\Controller\Admin\AdminController::index
-acceuiladmin:
-    path: /acceuiladmin
-    controller: App\Controller\AcceuilAdmin\AcceuilAdminController::index
-resultrecherche:
-  path: /resultrecherche
-  controller: App\Controller\ResultRechercheController::index
-  methods: ['GET']
-resultrechercheclient:
-  path: /resultrechercheclient
-  controller: App\Controller\ResultRechercheClientController::index
-  methods: ['GET']
-recherchetraversee:
-  path: /recherchetraversee
-  controller: App\Controller\RechercheTraversee\RechercheTraverseeController::index
-recherchetraverseeclient:
-  path: /recherchetraverseeclient
-  controller: App\Controller\RechercheTraverseeClient\RechercheTraverseeClientController::index
 traversee:
     path: /traversee
     controller: App\Controller\Traversee\TraverseeController::index

@@ -9,7 +9,7 @@ use App\Entity\Traversee;
 
 class RechercheTraverseeController extends AbstractController
 {
-    #[Route('/recherchetraversee', name: 'app_recherche_traversee')]
+    #[Route('/recherchetraversee')]
     public function index(): Response
     {
         $traverseeRepository = $this->getDoctrine()->getRepository(Traversee::class);
@@ -17,6 +17,17 @@ class RechercheTraverseeController extends AbstractController
         
         return $this->render('recherche_traversee/index.html.twig', [
             'controller_name' => 'RechercheTraverseeController',
+            'traversees' => $traversees,
+        ]);
+    }
+    #[Route('/recherchetraverseeclient')]
+    public function recherchetraverseeclient(): Response
+    {
+        $traverseeRepository = $this->getDoctrine()->getRepository(Traversee::class);
+        $traversees = $traverseeRepository->findAll();
+        
+        return $this->render('recherche_traversee_client/index.html.twig', [
+            'controller_name' => 'RechercheTraverseeClientController',
             'traversees' => $traversees,
         ]);
     }

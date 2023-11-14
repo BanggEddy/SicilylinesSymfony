@@ -8,9 +8,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Client;
 use App\Entity\Reservation;
+use Doctrine\Persistence\ManagerRegistry;
 
 class ConnectionController extends AbstractController
 {
+    private $doctrine;
+
+    public function __construct(ManagerRegistry $doctrine)
+    {
+        $this->doctrine = $doctrine;
+    }
+
     #[Route('/connection', name: 'app_connection')]
     public function index(Request $request): Response
     {
@@ -18,7 +26,10 @@ class ConnectionController extends AbstractController
             $email = $request->request->get('_email');
             $mdp = $request->request->get('_mdp');
 
-            $client = $this->getDoctrine()
+            // Utilisation de l'injection de dépendance pour obtenir le gestionnaire d'entités
+            $entityManager = $this->doctrine->getManager();
+
+            $client = $entityManager
                 ->getRepository(Client::class)
                 ->findOneBy(['email' => $email, 'mdp' => $mdp]);
 
@@ -32,21 +43,4 @@ class ConnectionController extends AbstractController
         return $this->render('connection/index.html.twig');
     }
 
-    #[Route('/reservation/{id}', name: 'app_reservation_new')]
-    public function reservation($id): Response
-    {
-        $client = $this->getDoctrine()
-            ->getRepository(Client::class)
-            ->find($id);
-
-        if (!$client) {
-            throw $this->createNotFoundException('Client non trouvé');
-        }
-
-        $reservations = $client->getReservations();
-
-        return $this->render('reservation/index.html.twig', [
-            'reservations' => $reservations,
-        ]);
-    }
 }

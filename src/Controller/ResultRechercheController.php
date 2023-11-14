@@ -27,4 +27,21 @@ class ResultRechercheController extends AbstractController
             'traversees' => $traversees,
         ]);
     }
+    public function resultrechercheclient(Request $request)
+    {
+        $searchTerm = $request->query->get('search');
+
+        // Récupérer les traversées de l'utilisateur avec la méthode findBy de Doctrine
+        $traversees = $this->getDoctrine()
+            ->getRepository(Traversee::class)
+            ->findBy([
+                'id' => $searchTerm,
+            ]);
+
+        return $this->render('result_recherche_client/index.html.twig', [
+            'traversees' => $traversees,
+        ]);
+    }
 }
+
+

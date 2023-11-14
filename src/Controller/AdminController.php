@@ -7,17 +7,29 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Admin;
+use Doctrine\Persistence\ManagerRegistry;
 
 class AdminController extends AbstractController
 {
-    #[Route('/admin', name: 'app_admin')]
+    private $doctrine;
+
+    public function __construct(ManagerRegistry $doctrine)
+    {
+        $this->doctrine = $doctrine;
+    }
+
+    #[Route('/admin')]
     public function index(Request $request): Response
     {
         if ($request->isMethod('POST')) {
             $email = $request->request->get('email');
             $mdp = $request->request->get('mdp');
 
-            $admin = $this->getDoctrine()
+            // Utilisation de l'injection de dépendance pour obtenir le gestionnaire d'entités
+            $entityManager = $this->doctrine->getManager();
+
+            // Utilisation du gestionnaire d'entités pour récupérer l'entité Admin
+            $admin = $entityManager
                 ->getRepository(Admin::class)
                 ->findOneBy(['email' => $email, 'mdp' => $mdp]);
 
